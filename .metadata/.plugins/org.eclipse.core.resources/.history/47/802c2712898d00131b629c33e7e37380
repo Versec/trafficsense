@@ -1,0 +1,54 @@
+package org.apps8os.trafficsense.first;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class Helper {
+	
+	
+	public void JSONconverter(){
+		String jsonstring = null;
+		JSONObject json =  null;
+	    try {
+	        InputStream is = getAssets().open("sample2.js");
+	        int size = is.available();
+	        byte[] buffer = new byte[size];
+	        is.read(buffer);
+	        is.close();
+	        jsonstring = new String(buffer, "UTF-8");
+	    } 
+	    catch (IOException ex) {
+	        ex.printStackTrace();
+	    }
+	    
+	    try {
+			json =  new JSONObject(jsonstring);
+		} 
+	    catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	    objectRoute.FillRoute(json);
+	    String input = objectRoute.getDepartureTime();
+	    Date date = new Date();
+		try {
+			date = new SimpleDateFormat("EEEE dd.M.yyyy kk:mm", Locale.ENGLISH).parse(input);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("date:" + date);
+	    long milliseconds = date.getTime();
+	    System.out.println(milliseconds);
+	    long millisecondsFromNow = milliseconds - (new Date()).getTime();
+	    	    
+	}
+}

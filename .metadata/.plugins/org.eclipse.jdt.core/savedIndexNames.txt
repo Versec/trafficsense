@@ -1,0 +1,17 @@
+INDEX VERSION 1.126+C:\Users\Javier\TrafficSense\TF\.metadata\.plugins\org.eclipse.jdt.core
+997606378.index
+3656331785.index
+2471600606.index
+3589824277.index
+3727367146.index
+857094326.index
+2652008819.index
+3279418527.index
+4282114772.index
+500456762.index
+1827209743.index
+643273176.index
+1488437376.index
+1045445283.index
+3668049111.index
+1569716809.index
